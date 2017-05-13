@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class Converter(object):    
+class Letor_Converter(object):    
     '''
     Class Converter implements parsing from original letor txt files to
     pandas data frame representation.
@@ -11,7 +11,7 @@ class Converter(object):
         
         '''
         Arguments:
-            path: takes path to letor txt file
+            path: path to letor txt file
         '''
         self._path = path
         
@@ -28,10 +28,9 @@ class Converter(object):
         Loads and parses raw letor txt file.
         
         Return:
-            df: letor txt file parsed to csv in raw format
+            letor txt file parsed to csv in raw format
         '''
-        df = pd.read_csv(str(self._path), sep=" ", header=None)
-        return df
+        return pd.read_csv(str(self._path), sep=" ", header=None)
         
     def _drop_col(self, df):
         '''
