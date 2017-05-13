@@ -1,9 +1,18 @@
 import pandas as pd
 
 
-class Converter(object):
+class Converter(object):    
+    '''
+    Class Converter implements parsing from original letor txt files to
+    pandas data frame representation.
+    '''
     
     def __init__(self, path):
+        
+        '''
+        Arguments:
+            path: takes path to letor txt file
+        '''
         self._path = path
         
     @property
@@ -14,21 +23,34 @@ class Converter(object):
     def path(self, p):
         self._path = p
         
-    def _load_file(self, path):
+    def _load_file(self):
+        '''        
+        Loads and parses raw letor txt file.
+        
+        Return:
+            df: letor txt file parsed to csv in raw format
+        '''
         df = pd.read_csv(str(self._path), sep=" ", header=None)
         return df
         
     def _drop_col(self, df):
         '''
+        Drops last column, which was added in the parsing procedure due to a
+        trailing white space for each sample in the text file
+        
         Arguments:
             df: pandas dataframe
         Return:
-            df: original df with last column dropped (parsing leftover as data set has trailing space for each sample)
+            df: original df with last column dropped
         '''
         return df.drop(df.columns[-1], axis=1)
     
     def _split_colon(self, df):
         '''
+        Splits the data on the colon and transforms it into a tabular format
+        where columns are features and rows samples. Cells represent feature
+        values per sample.
+        
         Arguments:
             df: pandas dataframe object
         Return:
@@ -41,6 +63,8 @@ class Converter(object):
     
     def convert(self):
         '''
+        Performs final conversion.
+        
         Return:
             fully converted pandas dataframe
         '''
