@@ -21,11 +21,10 @@ class Converter(object):
     def _drop_col(self, df):
         '''
         Arguments:
-            df: pandas dataframe object
+            df: pandas dataframe
         Return:
-            df: original df with last column dropped (parsing leftover as data set as trailing space for each sample)
+            df: original df with last column dropped (parsing leftover as data set has trailing space for each sample)
         '''
-        #df.drop(df.columns[-1], axis=1, inplace=True)
         return df.drop(df.columns[-1], axis=1)
     
     def _split_colon(self, df):
@@ -41,6 +40,10 @@ class Converter(object):
         return df
     
     def convert(self):
+        '''
+        Return:
+            fully converted pandas dataframe
+        '''
         df_raw = self._load_file(self._path)
         df_drop = self._drop_col(df_raw)
         return self._split_colon(df_drop)
