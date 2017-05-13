@@ -48,6 +48,3 @@ class Converter(object):
         df_drop = self._drop_col(df_raw)
         return self._split_colon(df_drop)
         
-    
-    
-
