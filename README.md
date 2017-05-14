@@ -1,3 +1,6 @@
+# Now Fully Integrated in PyLTR: https://github.com/jma127/pyltr
+
+
 # Letor-to-Pandas-Converter for Microsoft's Learning to Rank (LETOR) Dataset
 
 Get the data & descriptions here: https://www.microsoft.com/en-us/research/project/mslr/
