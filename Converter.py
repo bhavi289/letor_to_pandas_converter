@@ -67,7 +67,7 @@ class Letor_Converter(object):
         Return:
             fully converted pandas dataframe
         '''
-        df_raw = self._load_file(self._path)
+        df_raw = self._load_file()
         df_drop = self._drop_col(df_raw)
         return self._split_colon(df_drop)
         
